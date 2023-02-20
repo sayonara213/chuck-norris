@@ -1,8 +1,9 @@
 import React, { FC } from "react";
-import { ButtonText, ButtonWrap } from "./button.styled";
 import { setJoke } from "../../redux/jokeSlice";
 import { useAppDispatch } from "../../hooks/hooks";
 import { GetJoke } from "../../services/services";
+
+import { ButtonText, ButtonWrap } from "./button.styled";
 
 interface ButtonProps {
   category: string;

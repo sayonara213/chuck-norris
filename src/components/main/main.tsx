@@ -1,11 +1,14 @@
 import React from "react";
-import { Container } from "./main.styled";
 import Categories from "./categories/categories";
+import Joke from "./joke/joke";
+
+import { Container } from "./main.styled";
 
 const Main = () => {
   return (
     <Container>
       <Categories />
+      <Joke />
     </Container>
   );
 };

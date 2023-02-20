@@ -9,7 +9,7 @@ export const FONT_SIZE = {
   large: "50px",
 };
 export const FONT_WEIGHT = {
-  light: "600",
+  light: "400",
   bold: "800",
 };
 export const COLOR = {

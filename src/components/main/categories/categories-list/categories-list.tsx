@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Button from "../../../button/button";
+
+import { GetCategories } from "../../../../services/services";
+
 import { CategoriesListWrap } from "./categories-list.styled";
 
 const CategoriesList = () => {
   const [categories, setCategories] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("https://api.chucknorris.io/jokes/categories")
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
+    const fetchCategories = async () => {
+      const categories = await GetCategories();
+      setCategories([...categories, "random"]);
+    };
+
+    fetchCategories().catch((err) => console.log(err));
   }, []);
 
   return (
@@ -16,7 +22,6 @@ const CategoriesList = () => {
       {categories.map((category: string) => (
         <Button key={category} category={category} />
       ))}
-      <Button category={"random"} />
     </CategoriesListWrap>
   );
 };
