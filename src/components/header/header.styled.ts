@@ -4,7 +4,8 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0 160px;
-  width: calc(100% - 320px);
+  width: 100%;
+  box-sizing: border-box;
   height: 60px;
   background-color: ${(props) => props.theme.color.blue};
 `;
