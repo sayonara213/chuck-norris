@@ -1,4 +1,5 @@
 import React from "react";
+
 import CategoriesList from "./categories-list/categories-list";
 
 import { CategoriesTitle, CategoriesWrap } from "./categories.styled";

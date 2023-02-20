@@ -13,4 +13,5 @@ export const CategoriesTitle = styled.h2`
   font-family: "Roboto", sans-serif;
   font-size: ${(props) => props.theme.fontSize.large};
   font-weight: ${(props) => props.theme.fontWeight.bold};
+  color: ${(props) => props.theme.color.categories};
 `;

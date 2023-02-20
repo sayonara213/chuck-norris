@@ -11,7 +11,7 @@ export const ButtonWrap = styled.button`
   background-color: ${(props) => props.theme.color.white};
   border-radius: ${(props) => props.theme.borderRadius.small};
 
-  box-shadow: 0px 22px 80px 0px rgba(72, 70, 106, 0.07);
+  box-shadow: 0 22px 80px 0 rgba(72, 70, 106, 0.1);
 
   border: none;
   cursor: pointer;

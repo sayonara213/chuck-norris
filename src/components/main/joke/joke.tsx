@@ -1,4 +1,9 @@
 import React, { FC } from "react";
+
+import { useAppSelector } from "../../../hooks/hooks";
+
+import { IMAGES } from "../../../constants/images";
+
 import {
   JokeContainer,
   JokeImage,
@@ -6,11 +11,10 @@ import {
   JokeText,
   JokeWrap,
 } from "./joke.styled";
-import { useAppSelector } from "../../../hooks/hooks";
-import { IMAGES } from "../../../constants/images";
+import Loader from "../../loader/loader";
 
 const Joke: FC = () => {
-  const joke = useAppSelector((state) => state.joke.joke.value);
+  const { joke, isLoading } = useAppSelector((store) => store.jokeReducer);
 
   return (
     <JokeContainer>
@@ -18,9 +22,13 @@ const Joke: FC = () => {
         <JokeImage src={IMAGES.chuckNorris} />
       </JokeImageWrap>
       <JokeWrap>
-        <JokeText>
-          {joke.length > 0 ? joke : "Select a category first!"}
-        </JokeText>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <JokeText>
+            {joke.value.length > 0 ? joke.value : "Select a category first!"}
+          </JokeText>
+        )}
       </JokeWrap>
     </JokeContainer>
   );

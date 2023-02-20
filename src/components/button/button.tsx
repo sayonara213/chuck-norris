@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import { setJoke } from "../../redux/jokeSlice";
+
 import { useAppDispatch } from "../../hooks/hooks";
-import { GetJoke } from "../../services/services";
+import { fetchJoke } from "../../redux/actionCreator";
 
 import { ButtonText, ButtonWrap } from "./button.styled";
 
@@ -12,9 +12,8 @@ interface ButtonProps {
 const Button: FC<ButtonProps> = ({ category }) => {
   const dispatch = useAppDispatch();
 
-  const handleClick = async () => {
-    const joke = await GetJoke(category);
-    dispatch(setJoke(joke));
+  const handleClick = () => {
+    fetchJoke(dispatch, category);
   };
 
   return (

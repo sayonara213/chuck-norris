@@ -2,7 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import jokeSlice from "./jokeSlice";
 
 const rootReducer = combineReducers({
-  joke: jokeSlice,
+  jokeReducer: jokeSlice,
 });
 
 export const setupStore = () => {

@@ -1,10 +1,12 @@
 import React, { FC } from "react";
+
 import {
   HeaderContainer,
   HeaderIcon,
   HeaderIconWrap,
   HeaderTitle,
 } from "./header.styled";
+
 import { IMAGES } from "../../constants/images";
 
 const Header: FC = () => {

@@ -1,10 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IJoke } from "../models/IJoke";
 
 interface JokeState {
   joke: IJoke;
   isLoading: boolean;
-  error: string | null;
+  error: string;
 }
 
 const initialState: JokeState = {
@@ -18,19 +18,28 @@ const initialState: JokeState = {
     value: "",
   },
   isLoading: false,
-  error: null,
+  error: "",
 };
 
 const jokeSlice = createSlice({
   name: "joke",
   initialState,
   reducers: {
-    setJoke: (state, action) => {
+    setRequestJoke: (state) => {
+      state.isLoading = true;
+    },
+    setSuccessJoke: (state, action: PayloadAction<IJoke>) => {
       state.joke = action.payload;
+      state.isLoading = false;
+    },
+    setFailedJoke: (state, action: PayloadAction<string>) => {
+      state.error = action.payload;
+      state.isLoading = false;
     },
   },
 });
 
 export default jokeSlice.reducer;
 
-export const { setJoke } = jokeSlice.actions;
+export const { setRequestJoke, setSuccessJoke, setFailedJoke } =
+  jokeSlice.actions;

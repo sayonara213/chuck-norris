@@ -1,15 +1,16 @@
 import { FC, PropsWithChildren } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
-import { normalize } from "../style-reset/normalize";
+import { normalize } from "../../style-reset/normalize";
 
+import raleway from "../../assets/fonts/raleway.ttf";
 export const FONT_SIZE = {
   small: "16px",
   medium: "20px",
   large: "50px",
 };
 export const FONT_WEIGHT = {
-  light: "400",
+  light: "600",
   bold: "800",
 };
 export const COLOR = {
@@ -32,6 +33,13 @@ export const theme = {
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
+
+  @font-face {
+    font-family: 'raleway';
+    src: url(${raleway})
+    format('truetype');
+    font-display: swap;
+  }
   
   body {
     background: ${COLOR.white};
